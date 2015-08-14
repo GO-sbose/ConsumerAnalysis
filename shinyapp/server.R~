@@ -56,6 +56,59 @@ table.state.WestVirginia = read.csv("~/BLS_work/csv_files/table.state.WestVirgin
 table.state.Wisconsin    = read.csv("~/BLS_work/csv_files/table.state.Wisconsin.csv", sep=" ")
 table.state.Wyoming      = read.csv("~/BLS_work/csv_files/table.state.Wyoming.csv", sep=" ")
 
+sorted.Empl.Alabama <- table.state.Alabama[order(table.state.Alabama$Fraction_Employment),]
+sorted.Empl.Alaska                  <- table.state.Alaska[order(table.state.Alaska$Fraction_Employment),]
+sorted.Empl.Arizona      	    <- table.state.Arizona[order(table.state.Arizona       $Fraction_Employment),]
+sorted.Empl.Arkansas     	    <- table.state.Arkansas[order(table.state.Arkansas      $Fraction_Employment),]
+sorted.Empl.California   	    <- table.state.California[order(table.state.California    $Fraction_Employment),]
+sorted.Empl.Colorado     	    <- table.state.Colorado[order(table.state.Colorado      $Fraction_Employment),]
+sorted.Empl.Connecticut  	    <- table.state.Connecticut[order(table.state.Connecticut   $Fraction_Employment),]
+sorted.Empl.Delaware     	    <- table.state.Delaware[order(table.state.Delaware      $Fraction_Employment),]
+sorted.Empl.DofColumbia  	    <- table.state.DofColumbia[order(table.state.DofColumbia   $Fraction_Employment),]
+sorted.Empl.Florida      	    <- table.state.Florida[order(table.state.Florida       $Fraction_Employment),]
+sorted.Empl.Georgia      	    <- table.state.Georgia[order(table.state.Georgia       $Fraction_Employment),]
+sorted.Empl.Hawaii       	    <- table.state.Hawaii[order(table.state.Hawaii        $Fraction_Employment),]
+sorted.Empl.Idaho        	    <- table.state.Idaho[order(table.state.Idaho         $Fraction_Employment),]
+sorted.Empl.Illinois     	    <- table.state.Illinois[order(table.state.Illinois      $Fraction_Employment),]
+sorted.Empl.Indiana      	    <- table.state.Indiana[order(table.state.Indiana       $Fraction_Employment),]
+sorted.Empl.Iowa         	    <- table.state.Iowa[order(table.state.Iowa          $Fraction_Employment),]
+sorted.Empl.Kansas       	    <- table.state.Kansas[order(table.state.Kansas        $Fraction_Employment),]
+sorted.Empl.Kentucky     	    <- table.state.Kentucky[order(table.state.Kentucky      $Fraction_Employment),]
+sorted.Empl.Louisiana    	    <- table.state.Louisiana[order(table.state.Louisiana     $Fraction_Employment),]
+sorted.Empl.Maine        	    <- table.state.Maine[order(table.state.Maine         $Fraction_Employment),]
+sorted.Empl.Maryland     	    <- table.state.Maryland[order(table.state.Maryland      $Fraction_Employment),]
+sorted.Empl.Massachusetts	    <- table.state.Massachusetts[order(table.state.Massachusetts $Fraction_Employment),]
+sorted.Empl.Michigan     	    <- table.state.Michigan[order(table.state.Michigan      $Fraction_Employment),]
+sorted.Empl.Minnesota    	    <- table.state.Minnesota[order(table.state.Minnesota     $Fraction_Employment),]
+sorted.Empl.Mississippi  	    <- table.state.Mississippi[order(table.state.Mississippi   $Fraction_Employment),]
+sorted.Empl.Missouri     	    <- table.state.Missouri[order(table.state.Missouri      $Fraction_Employment),]
+sorted.Empl.Montana      	    <- table.state.Montana[order(table.state.Montana       $Fraction_Employment),]
+sorted.Empl.Nebraska     	    <- table.state.Nebraska[order(table.state.Nebraska      $Fraction_Employment),]
+sorted.Empl.Nevada       	    <- table.state.Nevada[order(table.state.Nevada        $Fraction_Employment),]
+sorted.Empl.NewHampshire 	    <- table.state.NewHampshire[order(table.state.NewHampshire  $Fraction_Employment),]
+sorted.Empl.NewJersey    	    <- table.state.NewJersey[order(table.state.NewJersey     $Fraction_Employment),]
+sorted.Empl.NewMexico    	    <- table.state.NewMexico[order(table.state.NewMexico     $Fraction_Employment),]
+sorted.Empl.NewYork      	    <- table.state.NewYork[order(table.state.NewYork       $Fraction_Employment),]
+sorted.Empl.NorthCarolina	    <- table.state.NorthCarolina[order(table.state.NorthCarolina $Fraction_Employment),]
+sorted.Empl.NorthDakota  	    <- table.state.NorthDakota[order(table.state.NorthDakota   $Fraction_Employment),]
+sorted.Empl.Ohio         	    <- table.state.Ohio[order(table.state.Ohio          $Fraction_Employment),]
+sorted.Empl.Oklahoma     	    <- table.state.Oklahoma[order(table.state.Oklahoma      $Fraction_Employment),]
+sorted.Empl.Oregon       	    <- table.state.Oregon[order(table.state.Oregon        $Fraction_Employment),]
+sorted.Empl.Pennsylvania 	    <- table.state.Pennsylvania[order(table.state.Pennsylvania  $Fraction_Employment),]
+sorted.Empl.RhodeIsland  	    <- table.state.RhodeIsland[order(table.state.RhodeIsland   $Fraction_Employment),]
+sorted.Empl.SouthCarolina	    <- table.state.SouthCarolina[order(table.state.SouthCarolina $Fraction_Employment),]
+sorted.Empl.SouthDakota  	    <- table.state.SouthDakota[order(table.state.SouthDakota   $Fraction_Employment),]
+sorted.Empl.Tennessee    	    <- table.state.Tennessee[order(table.state.Tennessee     $Fraction_Employment),]
+sorted.Empl.Texas        	    <- table.state.Texas[order(table.state.Texas         $Fraction_Employment),]
+sorted.Empl.Utah         	    <- table.state.Utah[order(table.state.Utah          $Fraction_Employment),]
+sorted.Empl.Vermont      	    <- table.state.Vermont[order(table.state.Vermont       $Fraction_Employment),]
+sorted.Empl.Virginia     	    <- table.state.Virginia[order(table.state.Virginia      $Fraction_Employment),]
+sorted.Empl.Washington   	    <- table.state.Washington[order(table.state.Washington    $Fraction_Employment),]
+sorted.Empl.WestVirginia 	    <- table.state.WestVirginia[order(table.state.WestVirginia  $Fraction_Employment),]
+sorted.Empl.Wisconsin    	    <- table.state.Wisconsin[order(table.state.Wisconsin     $Fraction_Employment),]
+sorted.Empl.Wyoming                 <- table.state.Wyoming[order(table.state.Wyoming       $Fraction_Employment),]    
+
+
 shinyServer(function(input, output){
 
   output$State <- renderText({ 
@@ -67,7 +120,7 @@ shinyServer(function(input, output){
   
   output$plot_Employment <- renderPlot({
     datain <- switch(input$state,
-                   "Alabama" = table.state.Alabama,                   
+                   "Alabama" = sorted.Empl.Alabama,                   
                    "Alaska" = table.state.Alaska,           
                    "Arizona" =               table.state.Arizona,      
                    "Arkansas" =              table.state.Arkansas,     
@@ -119,7 +172,112 @@ shinyServer(function(input, output){
                    "Wisconsin" =             table.state.Wisconsin    ,
                    "Wyoming" =               table.state.Wyoming                      
                    )
-    ggplot(data=datain,aes(y=Fraction_Employment, x=NAICS_name, color="black", fill= "white")) + 
+
+name.Alabama            <- sorted.Empl.Alabama           $NAICS_name
+name.Alaska             <- sorted.Empl.Alaska            $NAICS_name   
+name.Arizona      	<- sorted.Empl.Arizona      	 $NAICS_name
+name.Arkansas     	<- sorted.Empl.Arkansas     	 $NAICS_name
+name.California   	<- sorted.Empl.California   	 $NAICS_name
+name.Colorado     	<- sorted.Empl.Colorado     	 $NAICS_name
+name.Connecticut  	<- sorted.Empl.Connecticut  	 $NAICS_name
+name.Delaware     	<- sorted.Empl.Delaware     	 $NAICS_name
+name.DofColumbia  	<- sorted.Empl.DofColumbia  	 $NAICS_name
+name.Florida      	<- sorted.Empl.Florida      	 $NAICS_name
+name.Georgia      	<- sorted.Empl.Georgia      	 $NAICS_name
+name.Hawaii       	<- sorted.Empl.Hawaii       	 $NAICS_name
+name.Idaho        	<- sorted.Empl.Idaho        	 $NAICS_name
+name.Illinois     	<- sorted.Empl.Illinois     	 $NAICS_name
+name.Indiana      	<- sorted.Empl.Indiana      	 $NAICS_name
+name.Iowa         	<- sorted.Empl.Iowa         	 $NAICS_name
+name.Kansas       	<- sorted.Empl.Kansas       	 $NAICS_name
+name.Kentucky     	<- sorted.Empl.Kentucky     	 $NAICS_name
+name.Louisiana    	<- sorted.Empl.Louisiana    	 $NAICS_name
+name.Maine        	<- sorted.Empl.Maine        	 $NAICS_name
+name.Maryland     	<- sorted.Empl.Maryland     	 $NAICS_name
+name.Massachusetts	<- sorted.Empl.Massachusetts	 $NAICS_name
+name.Michigan     	<- sorted.Empl.Michigan     	 $NAICS_name
+name.Minnesota    	<- sorted.Empl.Minnesota    	 $NAICS_name
+name.Mississippi  	<- sorted.Empl.Mississippi  	 $NAICS_name
+name.Missouri     	<- sorted.Empl.Missouri     	 $NAICS_name
+name.Montana      	<- sorted.Empl.Montana      	 $NAICS_name
+name.Nebraska     	<- sorted.Empl.Nebraska     	 $NAICS_name
+name.Nevada       	<- sorted.Empl.Nevada       	 $NAICS_name
+name.NewHampshire 	<- sorted.Empl.NewHampshire 	 $NAICS_name
+name.NewJersey    	<- sorted.Empl.NewJersey    	 $NAICS_name
+name.NewMexico    	<- sorted.Empl.NewMexico    	 $NAICS_name
+name.NewYork      	<- sorted.Empl.NewYork      	 $NAICS_name
+name.NorthCarolina	<- sorted.Empl.NorthCarolina	 $NAICS_name
+name.NorthDakota  	<- sorted.Empl.NorthDakota  	 $NAICS_name
+name.Ohio         	<- sorted.Empl.Ohio         	 $NAICS_name
+name.Oklahoma     	<- sorted.Empl.Oklahoma     	 $NAICS_name
+name.Oregon       	<- sorted.Empl.Oregon       	 $NAICS_name
+name.Pennsylvania 	<- sorted.Empl.Pennsylvania 	 $NAICS_name
+name.RhodeIsland  	<- sorted.Empl.RhodeIsland  	 $NAICS_name
+name.SouthCarolina	<- sorted.Empl.SouthCarolina	 $NAICS_name
+name.SouthDakota  	<- sorted.Empl.SouthDakota  	 $NAICS_name
+name.Tennessee    	<- sorted.Empl.Tennessee    	 $NAICS_name
+name.Texas        	<- sorted.Empl.Texas        	 $NAICS_name
+name.Utah         	<- sorted.Empl.Utah         	 $NAICS_name
+name.Vermont      	<- sorted.Empl.Vermont      	 $NAICS_name
+name.Virginia     	<- sorted.Empl.Virginia     	 $NAICS_name
+name.Washington   	<- sorted.Empl.Washington   	 $NAICS_name
+name.WestVirginia 	<- sorted.Empl.WestVirginia 	 $NAICS_name
+name.Wisconsin    	<- sorted.Empl.Wisconsin     	 $NAICS_name
+name.Wyoming            <- sorted.Empl.Wyoming           $NAICS_name 
+ 
+ordered_name.Alabama                <- factor(name.Alabama               levels = name.Alabama         )
+ordered_name.Alaska                 <- factor(name.Alaska              , levels = name.Alaska          ) 
+ordered_name.Arizona      	    <- factor(name.Arizona             , levels = name.Arizona         )
+ordered_name.Arkansas     	    <- factor(name.Arkansas            , levels = name.Arkansas        )
+ordered_name.California   	    <- factor(name.California          , levels = name.California      )
+ordered_name.Colorado     	    <- factor(name.Colorado            , levels = name.Colorado        )
+ordered_name.Connecticut  	    <- factor(name.Connecticut         , levels = name.Connecticut     )
+ordered_name.Delaware     	    <- factor(name.Delaware            , levels = name.Delaware        )
+ordered_name.DofColumbia  	    <- factor(name.DofColumbia         , levels = name.DofColumbia     )
+ordered_name.Florida      	    <- factor(name.Florida             , levels = name.Florida         )
+ordered_name.Georgia      	    <- factor(name.Georgia             , levels = name.Georgia         )
+ordered_name.Hawaii       	    <- factor(name.Hawaii              , levels = name.Hawaii          )
+ordered_name.Idaho        	    <- factor(name.Idaho               , levels = name.Idaho           )
+ordered_name.Illinois     	    <- factor(name.Illinois            , levels = name.Illinois        )
+ordered_name.Indiana      	    <- factor(name.Indiana             , levels = name.Indiana         )
+ordered_name.Iowa         	    <- factor(name.Iowa                , levels = name.Iowa            )
+ordered_name.Kansas       	    <- factor(name.Kansas              , levels = name.Kansas          )
+ordered_name.Kentucky     	    <- factor(name.Kentucky            , levels = name.Kentucky        )
+ordered_name.Louisiana    	    <- factor(name.Louisiana           , levels = name.Louisiana       )
+ordered_name.Maine        	    <- factor(name.Maine               , levels = name.Maine           )
+ordered_name.Maryland     	    <- factor(name.Maryland            , levels = name.Maryland        )
+ordered_name.Massachusetts	    <- factor(name.Massachusetts       , levels = name.Massachusetts   )
+ordered_name.Michigan     	    <- factor(name.Michigan            , levels = name.Michigan        )
+ordered_name.Minnesota    	    <- factor(name.Minnesota           , levels = name.Minnesota       )
+ordered_name.Mississippi  	    <- factor(name.Mississippi         , levels = name.Mississippi     )
+ordered_name.Missouri     	    <- factor(name.Missouri            , levels = name.Missouri        )
+ordered_name.Montana      	    <- factor(name.Montana             , levels = name.Montana         )
+ordered_name.Nebraska     	    <- factor(name.Nebraska            , levels = name.Nebraska        )
+ordered_name.Nevada       	    <- factor(name.Nevada              , levels = name.Nevada          )
+ordered_name.NewHampshire 	    <- factor(name.NewHampshire        , levels = name.NewHampshire    )
+ordered_name.NewJersey    	    <- factor(name.NewJersey           , levels = name.NewJersey       )
+ordered_name.NewMexico    	    <- factor(name.NewMexico           , levels = name.NewMexico       )
+ordered_name.NewYork      	    <- factor(name.NewYork             , levels = name.NewYork         )
+ordered_name.NorthCarolina	    <- factor(name.NorthCarolina       , levels = name.NorthCarolina   )
+ordered_name.NorthDakota  	    <- factor(name.NorthDakota         , levels = name.NorthDakota     )
+ordered_name.Ohio         	    <- factor(name.Ohio                , levels = name.Ohio            )
+ordered_name.Oklahoma     	    <- factor(name.Oklahoma            , levels = name.Oklahoma        )
+ordered_name.Oregon       	    <- factor(name.Oregon              , levels = name.Oregon          )
+ordered_name.Pennsylvania 	    <- factor(name.Pennsylvania        , levels = name.Pennsylvania    )
+ordered_name.RhodeIsland  	    <- factor(name.RhodeIsland         , levels = name.RhodeIsland     )
+ordered_name.SouthCarolina	    <- factor(name.SouthCarolina       , levels = name.SouthCarolina   )
+ordered_name.SouthDakota  	    <- factor(name.SouthDakota         , levels = name.SouthDakota     )
+ordered_name.Tennessee    	    <- factor(name.Tennessee           , levels = name.Tennessee       )
+ordered_name.Texas        	    <- factor(name.Texas               , levels = name.Texas           )
+ordered_name.Utah         	    <- factor(name.Utah                , levels = name.Utah            )
+ordered_name.Vermont      	    <- factor(name.Vermont             , levels = name.Vermont         )
+ordered_name.Virginia     	    <- factor(name.Virginia            , levels = name.Virginia        )
+ordered_name.Washington   	    <- factor(name.Washington          , levels = name.Washington      )
+ordered_name.WestVirginia 	    <- factor(name.WestVirginia        , levels = name.WestVirginia    )
+ordered_name.Wisconsin    	    <- factor(name.Wisconsin           , levels = name.Wisconsin       )
+ordered_name.Wyoming                <- factor(name.Wyoming             , levels = name.Wyoming         ) 
+
+    ggplot(data=datain,aes(y=Fraction_Employment, x=ordered_name.Alabama, color="black", fill= "white")) + 
       geom_bar(stat="identity") + 
       coord_flip() + 
       theme(legend.position="none") +  
